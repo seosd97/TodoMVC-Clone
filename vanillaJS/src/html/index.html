@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" , content="IE=edge" />
+    <meta name="description" , content="" />
+    <meta name="viewport" , content="width=device-width, initial-scale=1" />
+    <title>TodoMVC-vanillaJS</title>
+
+    <script defer type="text/javascript" , src="../js/index.js"></script>
+    <link rel="stylesheet" , href="../css/index.css" />
+  </head>
+  <body>
+    <main>
+      <h1>todos</h1>
+      <section id="todo-main-section">
+        <form id="todo-form">
+          <input type="checkbox" name="todo-complete-all" id="todo-completely-all" />
+          <label for="todo-completely-all" id="todo-completely-all-label" style="visibility: hidden;"></label>
+          <input type="text" name="todo-text" id="todo-input" placeholder="What needs to be done?" autocomplete="off" autofocus />
+        </form>
+
+        <ul id="todo-list"></ul>
+        
+        <footer id="todo-list-footer" style="display: none;">
+          <span id="todo-complete-info">0 item left</span>
+          <div id="todo-filter-container">
+            <input type="radio" name="todo-filter" id="filter-all" checked />
+            <label for="filter-all">All</label>
+
+            <input type="radio" name="todo-filter" id="filter-active" />
+            <label for="filter-active">Active</label>
+
+            <input type="radio" name="todo-filter" id="filter-complete" />
+            <label for="filter-complete">Complete</label>
+          </div>
+        </footer>
+      </section>
+    </main>
+    <footer class="page-info">
+      made by <strong>seosd</strong></br>
+      part of <strong>TodoMVC</strong>
+      
+    </footer>
+  </body>
+</html>
