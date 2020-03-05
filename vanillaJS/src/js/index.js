@@ -3,6 +3,7 @@ const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
 const todoCompleteAll = document.getElementById("todo-completely-all");
 const todoListFooter = document.getElementById("todo-list-footer");
+const clearCompleted = document.getElementById("clear-completed-btn");
 
 let remainTodoCount = 0;
 
@@ -23,12 +24,32 @@ todoForm.onsubmit = e => {
 todoCompleteAll.onclick = e => {
   for (let i = 0; i < todoList.childElementCount; i++) {
     const checkbox = todoList.children[i].getElementsByTagName("input")[0];
+    if (e.target.checked && checkbox.checked) {
+      continue;
+    }
+    
     checkbox.checked = e.target.checked;
     
     // NOTE : checked를 변경해주는 것 만으로는 onchange이벤트가 발생하지 않기 때문에 추가
     //        추후 좀 더 리서치 후 정리 필요
     const event = new Event("change");
     checkbox.dispatchEvent(event);
+  }
+};
+
+clearCompleted.onclick = e => {
+  const completedList = todoList.getElementsByClassName("complete");
+  if (completedList.length < 0) {
+    return;
+  }
+
+  for (let i = completedList.length - 1; i >= 0; i--) {
+    completedList[i].remove();
+  }
+
+  if (!todoList.hasChildNodes()) {
+    todoCompleteAll.classList.remove("visible");
+    todoListFooter.style.display = "none";
   }
 };
 
@@ -96,6 +117,8 @@ const onRemoveTodo = elem => {
   if (!todoList.hasChildNodes()) {
     todoCompleteAll.classList.remove("visible");
     todoListFooter.style.display = "none";
+    remainTodoCount = 0;
+    return;
   }
 
   if (!elem.classList.contains("complete")) {

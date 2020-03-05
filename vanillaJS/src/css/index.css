@@ -200,6 +200,17 @@ button:focus {
   border-color: rgba(238, 195, 195, 0.8);
 }
 
+#clear-completed-btn {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  bottom: 0px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  color: lightgray;
+}
+
 .page-info {
   margin: 70px auto 0;
   text-align: center;
@@ -207,6 +218,7 @@ button:focus {
   line-height: 1.3rem;
   color: rgb(197, 197, 197);
 }
+
 .page-info strong {
   color: rgb(165, 165, 165);
 }
